@@ -113,10 +113,9 @@ def eval_pretrain():
     model = models.get_seg_model(config)   
     model = FullModel(model, criterion)
     model = nn.DataParallel(model, device_ids=gpus).cuda()
+    
+    model_state_file = "../checkpoints/deepglobe_fpn.pth"
 
-    # model_state_file = os.path.join(final_output_dir, "deepglobe_fpn.pth")
-    model_state_file = "/home/zzh/Project/zzh/MagNet/checkpoints/deepglobe_fpn.pth"
-    # model_state_file = "/home/zzh/Project/zzh/MagNet/checkpoints/cityscapes_hrnet.pth"
     checkpoint = torch.load(model_state_file)
     model.module.model.load_state_dict(
         {k.replace("model.", ""): v for k, v in checkpoint.items() if k.startswith("model.")}
