@@ -20,7 +20,7 @@ from tensorboardX import SummaryWriter
 def parse_args():
     parser = argparse.ArgumentParser(description="Train segmentation network")
 
-    parser.add_argument("--cfg", help="experiment configure file name", default="experiments/cityscapes/hrnet_ocr_w18_train_256x128_sgd_lr1e-2_wd5e-4_bs_12_epoch484.yaml", type=str)
+    parser.add_argument("--cfg", help="experiment configure file name", default="experiments/deepglobe/resnet_fpn_train_612x612_sgd_lr1e-2_wd5e-4_bs_12_epoch484.yaml", type=str)
     parser.add_argument(
         "opts", help="Modify config options using the command-line", default=None, nargs=argparse.REMAINDER
     )
